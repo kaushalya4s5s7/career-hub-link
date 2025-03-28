@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -47,50 +46,35 @@ const App = () => (
                     <Route path="/" element={<Landing />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    
+
                     <Route element={<Layout />}>
-                      <Route 
-                        path="/feed" 
+                      <Route
+                        path="/feed"
                         element={
                           <RequireAuth>
                             <Feed />
                           </RequireAuth>
-                        } 
+                        }
                       />
-                      <Route 
-                        path="/profile/:userId" 
-                        element={<Profile />} 
+                      <Route path="/profile/:userId" element={<Profile />} />
+                      <Route path="/jobs" element={<Jobs />} />
+                      <Route path="/jobs/:jobId" element={<JobDetails />} />
+                      <Route path="/events" element={<Events />} />
+                      <Route
+                        path="/events/:eventId"
+                        element={<EventDetails />}
                       />
-                      <Route 
-                        path="/jobs" 
-                        element={<Jobs />} 
-                      />
-                      <Route 
-                        path="/jobs/:jobId" 
-                        element={<JobDetails />} 
-                      />
-                      <Route 
-                        path="/events" 
-                        element={<Events />} 
-                      />
-                      <Route 
-                        path="/events/:eventId" 
-                        element={<EventDetails />} 
-                      />
-                      <Route 
-                        path="/messages" 
+                      <Route
+                        path="/messages"
                         element={
                           <RequireAuth>
                             <Messages />
                           </RequireAuth>
-                        } 
+                        }
                       />
-                      <Route 
-                        path="/mentors" 
-                        element={<Mentors />} 
-                      />
+                      <Route path="/mentors" element={<Mentors />} />
                     </Route>
-                    
+
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </BrowserRouter>
